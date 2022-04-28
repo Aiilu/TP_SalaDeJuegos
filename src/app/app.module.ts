@@ -11,6 +11,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RegistroComponent } from './registro/registro.component';
 import { FormsModule } from '@angular/forms';
 import { PerfilComponent } from './perfil/perfil.component';
+import { SalirComponent } from './salir/salir.component';
+import { HomeUsuarioComponent } from './home-usuario/home-usuario.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { PerfilComponent } from './perfil/perfil.component';
     MenuComponent,
     NotFoundComponent,
     RegistroComponent,
-    PerfilComponent
+    PerfilComponent,
+    SalirComponent,
+    HomeUsuarioComponent
   ],
   imports: [
     BrowserModule,

@@ -7,9 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor() { }
+  usuarios: any[];
+  nombre: string;
+  usuario: string;
 
-  ngOnInit(): void {
+  constructor() 
+  {
+    this.usuarios = [];
+    this.nombre = "";
+    this.usuario = "";
+  }
+  
+  ngOnInit() {
+    this.usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
+
+    let i:number;
+
+    for(i=0; i<this.usuarios.length; i++)
+    {
+      if(this.usuarios[i].status == true)
+      {
+        this.nombre = this.usuarios[i].nombre;
+        this.usuario = this.usuarios[i].usuario;
+        break;
+      }
+    }
   }
 
 }

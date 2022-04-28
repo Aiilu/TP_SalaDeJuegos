@@ -1,18 +1,40 @@
-<nav class="navbar navbar-dark bg-dark">
-  <ul class="list-unstyled list-inline">
-    <li class="list-inline-item p-3">
-      <a class="text-white" routerLink="quienSoy">Quien Soy?</a>
-    </li>
-    <li class="list-inline-item">
-      <a class="text-white" routerLink="registrarse">Registrarse</a>
-    </li>
-    <li class="list-inline-item p-3">
-      <a class="text-white" routerLink="login">Login</a>
-    </li>
-  </ul>
-  <ul>
-    <li class="grande">
-      <a class="text-white font-weight-bold" routerLink="home">Sala de Juegos - Torrez Ailen</a>
-    </li>
-  </ul>
-</nav>
+<div *ngIf="flag == true">
+  <nav class="navbar navbar-dark bg-dark">
+    <ul class="list-unstyled list-inline">
+      <li class="list-inline-item p-3">
+        <a class="text-white" routerLink="quienSoy">Quien Soy?</a>
+      </li>
+      <li class="list-inline-item p-3">
+        <a class="text-white" routerLink="perfil">Perfil</a>
+      </li>
+      <li class="list-inline-item p-3">
+        <a class="text-white" routerLink="salir">Salir</a>
+      </li>
+    </ul>
+    <ul>
+      <li class="grande">
+        <a class="text-white font-weight-bold" routerLink="home">Sala de Juegos - Torrez Ailen</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div *ngIf="flag == false">
+  <nav class="navbar navbar-dark bg-dark">
+    <ul class="list-unstyled list-inline">
+      <li class="list-inline-item p-3">
+        <a class="text-white" routerLink="quienSoy">Quien Soy?</a>
+      </li>
+      <li class="list-inline-item">
+        <a class="text-white" routerLink="registrarse">Registrarse</a>
+      </li>
+      <li class="list-inline-item p-3">
+        <a class="text-white" routerLink="login">Login</a>
+      </li>
+    </ul>
+    <ul>
+      <li class="grande">
+        <a class="text-white font-weight-bold" routerLink="home">Sala de Juegos - Torrez Ailen</a>
+      </li>
+    </ul>
+  </nav>
+</div>

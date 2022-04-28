@@ -38,6 +38,7 @@ export class RegistroComponent implements OnInit {
 
     if(existe == false)
     {
+      this.miUsuario.status = true;
       this.usuarios.push(this.miUsuario);
       localStorage.setItem("usuarios", JSON.stringify(this.usuarios));
       alert("Usuario creado con exito");
