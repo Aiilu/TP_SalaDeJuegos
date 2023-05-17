@@ -1,0 +1,25 @@
+<div class="contenedor">
+    <h1 class="mt-2">Chat</h1>
+    <div class="chat">
+        <!-- <div class="mensajes" *ngIf="(this.usuario | async)?.mail else incorrecto"> -->
+            <div class="mensajes" *ngIf="this.mailUsuario else incorrecto">
+            <!-- La clase se agrega cuando se cumple esta condicion -->
+            <!-- <div [ngClass]="{'text-end': chat.usuario == 'Ailen'}" *ngFor="let chat of this.chats"> -->
+            <div *ngFor="let chat of this.chats" class="msj" [ngClass]="{'mio': chat.usuario == this.mailUsuario}">
+                <h4 class="usuHs" [ngClass]="{'text-primary': chat.usuario == this.mailUsuario,
+                'text-danger': chat.usuario != this.mailUsuario}">{{chat.usuario}} (<p class="hora">{{chat.hora}}</p>)</h4>
+                <p class="mensaje">{{chat.mensaje}}</p>
+            </div>
+        </div>
+        <input *ngIf="this.mailUsuario" type="text" class="form-control mt-2" name="mensaje" [(ngModel)]="this.mensaje" placeholder="Presione ENTER para enviar el mensaje" (keyup.enter)="this.enviar()">
+    </div>
+</div>
+
+<ng-template #incorrecto>
+    <div class="usuHs">
+        <a routerLink="/login">Inicie Sesion </a>
+        <p>o</p>
+        <a routerLink="/registro"> Registrese</a>
+    </div>
+    <p>para acceder al chat</p>
+</ng-template>

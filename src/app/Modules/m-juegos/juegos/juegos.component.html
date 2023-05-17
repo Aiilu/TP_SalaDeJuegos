@@ -1,0 +1,28 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-4">
+            <h1 class="m-0 display-6 text-center">Listado de Juegos</h1>
+            <ul>
+                <li class="clase" (click)="this.navegacion('ahorcado')">
+                    <img class="imgListado" src="../../../../assets/ahorcado.png" alt="Imagen ahorcado">
+                    <h4 class="texto">Ahorcado</h4>
+                </li>
+                <li class="clase" (click)="this.navegacion('mayormenor')">
+                    <img class="imgListado" src="../../../../assets/mayormenor.jpg" alt="Imagen mayormenor.jpg">
+                    <h4 class="texto">Mayor o Menor</h4>
+                </li>
+                <li class="clase" (click)="this.navegacion('preguntados')">
+                    <img class="imgListado" src="../../../../assets/preguntados.jpg" alt="Imagen preguntados.jpg">
+                    <h4 class="texto">Preguntados</h4>
+                </li>
+                <li class="clase" (click)="this.navegacion('desconocido')">
+                    <img class="imgListado" src="../../../../assets/desconocido.png" alt="Imagen desconocido">
+                    <h4 class="texto">???</h4>
+                </li>
+            </ul>
+        </div>
+        <div class="col juego">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

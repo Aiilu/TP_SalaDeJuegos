@@ -1,0 +1,23 @@
+<!-- ● Mayor o Menor
+○ Desde un mazo de carta se va a preguntar si la siguiente es mayor o menor.
+El jugador sumará un punto ante cada carta que adivine. -->
+<div class="contenedor">
+    <div class="juego">
+        <div class="carta">
+            <img class="fondo" src="../../../../../assets/carta.png" alt="fondo-carta">
+            <!-- Corchetes y @ te linkea una variable de animacion de TS -->
+            <img [@animacion]="this.estado" [src]="this.mostrarCarta" alt="carta">
+        </div>
+        <div class="botones">
+            <!-- <button (click)="this.comenzar()">Comenzar</button> -->
+            <!-- <button (click)="this.mayor()">Mayor</button>
+            <button (click)="this.menor()">Menor</button> -->
+            <button class="boton" (click)="this.comparacion(true)">Mayor</button>
+            <button class="boton" (click)="this.comparacion(false)">Menor</button>
+        </div>
+    </div>
+    <div class="info">
+        <h4 [@animacion3]="this.estado3" class="info__texto">Vidas = {{this.vidas}}</h4>
+        <h4 [@animacion2]="this.estado2" class="info__texto">Puntos = {{this.puntos}}</h4>
+    </div>
+</div>

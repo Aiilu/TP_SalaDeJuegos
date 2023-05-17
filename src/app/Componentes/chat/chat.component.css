@@ -1,0 +1,49 @@
+.mensajes
+{
+    overflow-y:scroll; 
+    height: 380px;
+    padding: 10px;
+}
+
+.chat
+{
+    padding: 10px;
+    width: 30%;
+    height: 20%;
+    border: 3px solid #bc21c2;
+    border-radius: 20px;
+}
+
+.contenedor
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mensaje
+{
+    font-size: 1.2em;
+}
+
+.msj
+{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.mio {
+    align-items: flex-end;
+}
+
+.usuHs{
+    display: flex;
+}
+
+.hora
+{
+    margin-top: 0.2em;
+    font-size: 0.8em;
+    font-weight: 100;
+}

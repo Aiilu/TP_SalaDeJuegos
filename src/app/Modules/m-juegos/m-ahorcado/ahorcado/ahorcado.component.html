@@ -1,0 +1,17 @@
+<div class="contenedor">
+    <div class="contenedor__imagen">
+        <img src="../../../../../assets/ahorcado.png" alt="">
+    </div>
+    <div class="contenedor__texto">
+        <h2 class="texto__racha">RACHA: {{this.racha}}</h2>
+        <p class="texto__intentos">intentos restantes: {{this.intentos}}</p>
+        <div class="texto__palabra">
+            <p class="palabra__letra" *ngFor="let letraS of this.seleccionada2">{{letraS}}</p>
+            <!-- <p class="palabra__letra palabra__letra{{i}}" *ngFor="let letra of this.seleccionada; let i = index">{{letra}}</p> -->
+        </div>
+    </div>
+    <div class="contenedor__teclado">
+        <button class="teclado__letra" *ngFor="let letraT of this.abc" (click)="this.verificar(letraT, $event)">{{letraT}}</button>
+        <!-- <button class="teclado__letra" [disabled]="this.prueba" *ngFor="let letraT of this.abc; let i = index" (click)="this.verificar(letraT, $event)">{{letraT}}</button> -->
+    </div>
+</div>

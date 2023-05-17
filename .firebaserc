@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "saladejuegos-torrez": {
+      "hosting": {
+        "TP_SalaDeJuegos": [
+          "saladejuegos-torrez"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "saladejuegos-torrez"
+  }
+}

@@ -1,0 +1,62 @@
+.contenedor{
+    background-color: red;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contenedor__imagen {
+    height: 80%;
+    width: 50%;
+    background-color: yellow;
+}
+
+.contenedor__texto {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+}
+
+.texto__racha{
+    margin-top: -2em;
+    margin-bottom: 4em;
+    color: blueviolet;
+    font-weight: 900;
+}
+
+.texto__intentos{
+    margin-bottom: 2em;
+}
+
+.texto__palabra {
+    display: flex;
+    justify-content: center;
+}
+
+.palabra__letra{
+    width: 1em;
+    margin: 0 .5em;
+    border-bottom: 0.1em solid black;
+}
+
+.contenedor__teclado {
+    width: 100%;
+    height: 20%;  
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: .2em 6em;
+}
+
+.teclado__letra {
+    width: 1.5em;
+    font-size: 1.5em;
+    margin: 0.1em;
+    background-color: blue;
+}

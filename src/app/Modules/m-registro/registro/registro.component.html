@@ -1,0 +1,30 @@
+<!-- ORIGINAL  -->
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <h2 class="active"> Registro </h2>
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="../../../../assets/registrar.png" id="icon" alt="User Icon" style="width: 30px;" />
+        </div>
+
+        <!-- Registro Form -->
+        <form [formGroup]="formRegistro" (ngSubmit)="this.registrar()">
+            <label for="emailR">Mail:</label>
+            <br>
+            <input type="text" id="emailR" class="fadeIn second" name="registroEmail" placeholder="Ingrese mail" formControlName="emailR">
+            <small class="invalid" *ngIf="formRegistro.controls['emailR'].errors?.['required'] && formRegistro.controls['emailR'].touched">El email es requerido</small>
+            <small class="invalid" *ngIf="formRegistro.controls['emailR'].errors?.['email'] && formRegistro.controls['emailR'].touched">El email debe tener el formato correspondiente</small>
+            <small class="invalid" *ngIf="formRegistro.controls['emailR'].errors?.['containsSpaces'] && formRegistro.controls['emailR'].touched">El email no puede contener espacios</small>
+
+            <label for="claveR">Contraseña:</label>
+            <br>
+            <input type="password" id="claveR" class="fadeIn third" name="registroClave" placeholder="Ingrese contraseña" formControlName="claveR">
+            <small class="invalid" *ngIf="formRegistro.controls['claveR'].errors?.['required'] && formRegistro.controls['claveR'].touched">La clave es requerida</small>
+            <small class="invalid" *ngIf="formRegistro.controls['claveR'].errors?.['containsSpaces'] && formRegistro.controls['claveR'].touched">La clave no puede contener espacios</small>
+            <small class="invalid" *ngIf="formRegistro.controls['claveR'].errors?.['minLength'] && formRegistro.controls['claveR'].touched">La clave debe ser >=5</small>
+            <input type="submit" class="fadeIn fourth" value="Ingresar" [disabled]="formRegistro.invalid">
+        </form>
+    </div>
+</div>
+    

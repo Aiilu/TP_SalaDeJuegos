@@ -1,0 +1,38 @@
+ul
+{
+    list-style: none;
+    padding: 0;
+    /* Lo hago flex para poder acomodarlo como yo quiero. Y le doy la direccion de columna para que este uno debajo del otro, y con el align-items acomodo de forma horizontal y con el justify de forma vertical. Si estuviese usando la row, seria al reves. */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.clase
+{
+    margin-top: .5em;
+    padding-top: .5em;
+    border: 1px solid #000;
+    /* Alto */
+    height: 7em;
+    /* Ancho */
+    width: 7em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imgListado
+{
+    height: 90%;
+    width:  90%;
+}
+
+.texto {
+    font-size: 1em;
+    text-align: center;
+}
+
+.juego { 
+    margin: 3em  0 1em 0;
+}
