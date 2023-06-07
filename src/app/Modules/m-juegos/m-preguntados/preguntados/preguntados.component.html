@@ -1,0 +1,15 @@
+<div class="contenedor">
+    <h3 class="contenedor__titulo">¿Cual es este pokemón?</h3>
+    
+    <div class="contenedor__info">
+        <!-- <h4 class="info__vidas">Vidas: {{this.vidas}}</h4> -->
+        <h4 class="info__racha">Racha: {{this.racha}}</h4>
+    </div>
+
+    <div class="contenedor__juego">
+        <img [src]="(this.obs | async)?.at(this.num)?.foto" alt="Pokemón" class="juego__imagen">
+        <div class="juego__botones">
+            <button class="botones__boton" *ngFor="let pokemon of (this.obs | async)" (click)="this.validarRespuesta(pokemon.nombre)">{{pokemon.nombre}}</button>
+        </div>
+    </div>
+</div>

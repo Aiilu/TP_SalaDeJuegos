@@ -12,17 +12,22 @@
     align-items: center;
 }
 
-.carta {
+.carta{
     margin: 2em;
 }
 
 .fondo{
-    width: 226px;
-    height: 314px;
+    width: 180px;
+    height: 250px;
     border-radius: 5%;
 }
 
-.botones {
+.frente{
+    width: 180px;
+    height: 250px;
+}
+
+.botones{
     display: flex;
     justify-content: space-between;
     width: 15em;
@@ -33,13 +38,13 @@
     height: 4em;
 }
 
-.info {
+.info{
     /* display: flex; */
     /* justify-content: space-evenly; */
-    width: 20em;
+    width: 15em;
 }
 
-.info__texto {
+.info__texto{
     font-weight: 900;
     color: white;
     padding: 1em;

@@ -1,0 +1,12 @@
+<div class="contenedor">
+    <h3 class="contenedor__titulo">Reflejos</h3>
+    <div class="contenedor__info">
+        <h5 class="info__vidas">Vidas: {{this.vidas}}</h5>
+        <h5 class="info__puntos">Puntos: {{this.puntos}}</h5>
+    </div>
+    
+    <div class="contenedor__juego">
+        <button class="juego__boton" [ngClass]="displayB" (click)="this.empezar()">Empezar</button>
+        <div class="juego__objetivo" [ngStyle]="{'top.%': top, 'left.%': left}" [ngClass]="display" (click)="this.click()"></div>
+    </div>
+</div>

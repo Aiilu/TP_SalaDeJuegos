@@ -14,13 +14,14 @@ import Swal from 'sweetalert2';
 })
 export class RegistroComponent {
   formRegistro: FormGroup;
-  miUsuario = new Usuario("", "");
+  miUsuario = new Usuario("", "", "");
   sub:Subscription = Subscription.EMPTY;
 
   constructor(private fb: FormBuilder, private servBase:BasedatosService, private servUsuario:UsuariosService, private router:Router) {
     this.formRegistro = this.fb.group({
       'emailR': ['', [Validators.required, Validators.email, this.spacesValidator]],
-      'claveR': ['', [Validators.required, this.spacesValidator, Validators.minLength(5)]]
+      'claveR': ['', [Validators.required, this.spacesValidator]],
+      'perfilR': ['', [Validators.required]]
     });
   }
 
@@ -36,6 +37,7 @@ export class RegistroComponent {
   {
     this.miUsuario.mail = this.formRegistro.value.emailR;
     this.miUsuario.clave = this.formRegistro.value.claveR;
+    this.miUsuario.perfil = this.formRegistro.value.perfilR;
     
     if(!this.servUsuario.validarUsuario(this.servBase.array, this.miUsuario, "R")){
       this.servBase.guardar("Usuarios", this.miUsuario);
@@ -45,9 +47,10 @@ export class RegistroComponent {
         'success'
       );
       // this.servUsuario.activo = this.miUsuario;
+      let fechaHora:string = (((new Date).toLocaleDateString()) + " " + ((new Date).toLocaleTimeString()));
       this.servUsuario.setActivo = this.miUsuario;
-      this.servBase.guardar("Log", {usuario:{mail:this.miUsuario.mail, clave:this.miUsuario.clave}, fecha:(new Date).toString(), accion:"Registro"});
-      this.servBase.guardar("Log", {usuario:{mail:this.miUsuario.mail, clave:this.miUsuario.clave}, fecha:(new Date).toString(), accion:"Login"});
+      this.servBase.guardar("Log", {usuario:{mail:this.miUsuario.mail, clave:this.miUsuario.clave, perfil:this.miUsuario.perfil}, fecha:fechaHora, accion:"Registro"});
+      this.servBase.guardar("Log", {usuario:{mail:this.miUsuario.mail, clave:this.miUsuario.clave, perfil:this.miUsuario.perfil}, fecha:fechaHora, accion:"Login"});
       this.router.navigateByUrl("home");
     }else{
       Swal.fire(

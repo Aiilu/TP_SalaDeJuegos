@@ -8,6 +8,8 @@ const routes: Routes = [
    [
     {path: 'ahorcado', loadChildren: () => import('./m-ahorcado/m-ahorcado.module').then(m => m.MAhorcadoModule)},
     {path: 'mayormenor', loadChildren: () => import('./m-maymen/m-maymen.module').then(m => m.MMaymenModule)},
+    {path: 'preguntados', loadChildren: () => import('./m-preguntados/m-preguntados.module').then(m => m.MPreguntadosModule)},
+    {path: 'propio', loadChildren: () => import('./m-propio/m-propio.module').then(m => m.MPropioModule)},
     {path: 'noLogueado', component:NotFoundJuegoComponent}
    ]}
 ];

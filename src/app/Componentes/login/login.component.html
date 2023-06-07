@@ -10,13 +10,16 @@
     <!-- Login Form -->
     <form (ngSubmit)="this.ingresar()">
       <label for="emailL">Mail:</label>
+      <br>
       <input type="text" id="emailL" class="fadeIn second" name="loginEmail" placeholder="Ingrese mail" [(ngModel)]="this.miUsuario.mail">
       <label for="claveL">Contraseña:</label>
+      <br>
       <input type="password" id="claveL" class="fadeIn third" name="loginClave" placeholder="Ingrese contraseña" [(ngModel)]="this.miUsuario.clave">
-      <div class="row justify-content-center">
-        <input type="submit" class="fadeIn fourth p-2 col-2" value="Ingresar">
+      <div class="row justify-content-center mt-2">
         <input type="button" class="fadeIn fourth p-2 col-2" value="Invalido" (click)="this.llenar('noesta@gmail.com', 'asd789')">
-        <input type="button" class="fadeIn fourth p-2 col-2" value="valido" (click)="this.llenar('esta@gmail.com','hola123')">
+        <input type="button" class="fadeIn fourth p-2 col-2" value="empleado" (click)="this.llenar('emp@gmail.com','hola123')">
+        <input type="button" class="fadeIn fourth p-2 col-2" value="admin" (click)="this.llenar('admin@gmail.com','chau123')">
+        <input type="submit" class="fadeIn fourth p-2 col-2" value="Ingresar">
       </div>
     </form>
   </div>

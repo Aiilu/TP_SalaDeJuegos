@@ -7,7 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class UsuariosService {
   // activo?:Usuario;
-  private activo: BehaviorSubject<Usuario> = new BehaviorSubject<Usuario>(new Usuario("",""));
+  private activo: BehaviorSubject<Usuario> = new BehaviorSubject<Usuario>(new Usuario("","", ""));
+  tipoPerfil:string = "";
 
   constructor() {
    }
@@ -29,6 +30,7 @@ export class UsuariosService {
       if(element.mail == usuario.mail){
         if(val == "T"){
           if(element.clave == usuario.clave){
+            this.tipoPerfil = element.perfil;
             existe = true;
           }
         }else{
@@ -39,9 +41,5 @@ export class UsuariosService {
     }
 
     return existe;
-  }
-
-  activoOnChanges(){
-    
   }
 }

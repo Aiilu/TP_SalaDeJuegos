@@ -1,0 +1,92 @@
+<form [formGroup]="formEncuesta" class="contenedor" (ngSubmit)="this.guardar()">
+        <h2 class="contenedor__titulo">Encuesta</h2>
+        <div class="contenedor__nombre">
+                <label for="nombre" class="">Nombre</label>
+                <input type="text" class="" id="nombre" placeholder="Ingrese nombre"
+                    formControlName="nombre">
+                <small class="invalid"
+                    *ngIf="formEncuesta.controls['nombre'].errors?.['required'] && formEncuesta.controls['nombre'].touched">El nombre es requerido</small>
+                    <small class="invalid"
+                    *ngIf="formEncuesta.controls['nombre'].errors?.['pattern'] && formEncuesta.controls['nombre'].touched">El nombre debe contener solo letras</small>
+        </div>
+
+        <div class="contenedor__apellido">
+                <label for="apellido" class="">Apellido</label>
+                <input type="text" class="" id="apellido" placeholder="Ingrese apellido"
+                    formControlName="apellido">
+                <small class="invalid"
+                    *ngIf="formEncuesta.controls['apellido'].errors?.['required'] && formEncuesta.controls['apellido'].touched">El apellido es requerido</small>
+                <small class="invalid"
+                    *ngIf="formEncuesta.controls['apellido'].errors?.['pattern'] && formEncuesta.controls['apellido'].touched">El apellido debe contener solo letras</small>
+        </div>
+
+        <div class="contenedor__edad">
+                <label for="edad" class="">Edad</label>
+                <input type="number" class="" id="edad" placeholder="Ingrese edad" formControlName="edad">
+                <small class="invalid"
+                    *ngIf="formEncuesta.controls['edad'].errors?.['required'] && formEncuesta.controls['edad'].touched">La edad es requerida y numerica</small>
+                <small class="invalid"
+                    *ngIf="(formEncuesta.controls['edad'].errors?.['min'] || formEncuesta.controls['edad'].errors?.['max']) && formEncuesta.controls['edad'].touched">La edad debe ser >= 18 y <=99</small>
+        </div>
+
+        <div class="contenedor__telefono">
+                <label for="telefono" class="">Telefono</label>
+                <input type="text" class="" id="telefono" placeholder="Ingrese telefono" formControlName="telefono">
+                    <small class="invalid"
+                    *ngIf="formEncuesta.controls['telefono'].errors?.['required'] && formEncuesta.controls['telefono'].touched">El telefono es requerido</small>
+                    <small class="invalid"
+                    *ngIf="formEncuesta.controls['telefono'].errors?.['pattern'] && formEncuesta.controls['telefono'].touched">El telefono debe ser numerico</small>
+                <small class="invalid"
+                    *ngIf="formEncuesta.controls['telefono'].errors?.['maxLength'] && formEncuesta.controls['telefono'].touched">El telefono debe tener una long <  10</small>
+        </div>
+
+        <div class="contenedor__box">
+                <label for="comentario" class="">¿Tienes algo que aportar para la pagina?</label>
+                <textarea id="comentario" cols="30" rows="2" formControlName="comentario" class=""></textarea>
+                <small class="invalid"
+                *ngIf="formEncuesta.controls['comentario'].errors?.['maxLength2'] && formEncuesta.controls['comentario'].touched">El comentario deber tener entre 5 y 500 caracteres</small>
+                <small class="invalid"
+                    *ngIf="formEncuesta.controls['comentario'].errors?.['containsSpaces2'] && formEncuesta.controls['comentario'].touched">El comentario no puede estar vacio</small>
+        </div>
+
+        <div class="contenedor__radio">
+                <label for="opcion">¿Que tan divertidos son los juegos?</label>
+                <div class="opcion">
+                    <input type="radio" name="opcion" id="opcion" value="MD" formControlName="opcion">
+                    <label for="opcion">Muy divertido</label>
+                </div>
+                <div class="opcion">
+                    <input type="radio" name="opcion" id="opcion" value="D" formControlName="opcion">
+                    <label for="opcion">Divertido</label>
+                </div>
+                <div class="opcion">
+                    <input type="radio" name="opcion" id="opcion" value="ND" formControlName="opcion">
+                    <label for="opcion">Nada divertido</label>
+                </div>
+        </div>
+
+        <div class="contenedor__check">
+                <label>¿Como encontraste TP Sala De Juegos?</label>
+                <div class="opcion">
+                    <input type="checkbox" name="busqueda[]" id="busqueda" value="I" formControlName="check1">
+                    <label for="busqueda[]">Instagram</label>
+                </div>
+                <div class="opcion">
+                        <input type="checkbox" name="busqueda[]" id="busqueda" value="F" formControlName="check2">
+                        <label for="busqueda[]">Facebook</label>
+                </div>
+                <div class="opcion">
+                        <input type="checkbox" name="busqueda[]" id="busqueda" value="T" formControlName="check3">
+                        <label for="busqueda[]">Twitter</label>
+                </div>
+                <div class="opcion">
+                        <input type="checkbox" name="busqueda[]" id="busqueda" value="R" formControlName="check4">
+                        <label for="busqueda[]">Recomendacion</label>
+                </div>
+                <small class="invalid"
+                *ngIf="formEncuesta.controls['check[]'].errors?.['checkVal'] && formEncuesta.controls['check[]'].touched">Seleccione al menos una opcion</small>
+        </div>
+
+        <button type="submit" class="contenedor__boton" [disabled]="formEncuesta.invalid">Aceptar</button>
+</form>
+

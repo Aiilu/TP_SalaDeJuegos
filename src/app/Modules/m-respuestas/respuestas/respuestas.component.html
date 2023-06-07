@@ -1,0 +1,16 @@
+<div class="contenedor">
+    <h1>Respuestas Encuesta</h1>
+    <div class="contenedor__respuestas">
+        <div *ngFor="let respuesta of this.listaRespuestas" class="contenedor__respuestas__respuesta">
+            <h4>Usuario - {{this.respuesta.usuario}}</h4>
+            <p>* Nombre: {{this.respuesta.nombre}}</p>
+            <p>* Apellido: {{this.respuesta.apellido}}</p>
+            <p>* Edad: {{this.respuesta.edad}}</p>
+            <p>* Telefono: {{this.respuesta.telefono}}</p>
+            <p>* ¿Que tan divertidos son los juegos? {{this.respuesta.resp2}}</p>
+            <p>* ¿Como encontraste TP Sala de Juegos? {{this.respuesta.resp3}}</p>
+            <p>* ¿Tienes algo que aportar para la pagina? {{this.respuesta.resp1}}</p>
+        </div>
+    </div>
+</div>
+

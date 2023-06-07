@@ -1,0 +1,28 @@
+.contenedor{
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: crimson; */
+}
+
+.contenedor__boton{
+    margin-top: 1em;
+    /* background-color: aqua; */
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.contenedor__juego
+{
+    /* background-color: blueviolet; */
+    width: 100%;
+    margin-top: 1em;
+}
+
+h4
+{
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

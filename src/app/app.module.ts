@@ -14,7 +14,7 @@ import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { FormsModule } from '@angular/forms';
-import { ChatComponent } from './Componentes/chat/chat.component';
+import { ErrorPerfilComponent } from './Componentes/error-perfil/error-perfil.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { ChatComponent } from './Componentes/chat/chat.component';
     LoginComponent,
     MenuComponent,
     NotFoundComponent,
-    ChatComponent
+    ErrorPerfilComponent
   ],
   imports: [
     BrowserModule,

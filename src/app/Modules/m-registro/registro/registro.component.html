@@ -22,7 +22,17 @@
             <input type="password" id="claveR" class="fadeIn third" name="registroClave" placeholder="Ingrese contraseña" formControlName="claveR">
             <small class="invalid" *ngIf="formRegistro.controls['claveR'].errors?.['required'] && formRegistro.controls['claveR'].touched">La clave es requerida</small>
             <small class="invalid" *ngIf="formRegistro.controls['claveR'].errors?.['containsSpaces'] && formRegistro.controls['claveR'].touched">La clave no puede contener espacios</small>
-            <small class="invalid" *ngIf="formRegistro.controls['claveR'].errors?.['minLength'] && formRegistro.controls['claveR'].touched">La clave debe ser >=5</small>
+
+            <br>
+            <label for="perfilR">Perfil: </label>
+            <br>
+            <select id="perfilR" formControlName="perfilR">
+                <option value="">Seleccione uno</option>
+                <option value="admin">Admin</option>
+                <option value="empleado">Empleado</option>
+            </select>
+            <small class="invalid" *ngIf="formRegistro.controls['perfilR'].errors?.['required'] && formRegistro.controls['perfilR'].touched">El perfil es requerido</small>
+            <br><br>
             <input type="submit" class="fadeIn fourth" value="Ingresar" [disabled]="formRegistro.invalid">
         </form>
     </div>

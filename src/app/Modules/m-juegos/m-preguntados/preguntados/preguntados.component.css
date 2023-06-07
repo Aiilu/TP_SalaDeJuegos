@@ -1,0 +1,64 @@
+.contenedor{
+    width: 100%;
+    height: 100%;
+    background-color: #305025;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contenedor__titulo{
+    width: 100%;
+    font-size: 2.2em;
+    font-weight: bolder;
+    text-align: center;
+    padding: 0.8em 0;
+    margin: 0;
+    color: #aa9020;
+}
+
+.contenedor__juego{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.juego__imagen{
+    width: 20em;
+    height: 20em;
+    margin: 0 2em 1.7em .5em;
+}
+
+.juego__botones{
+    display: flex;
+    flex-wrap: wrap;
+    width: 18em;
+    margin-top: 4em;
+}
+
+.botones__boton{
+    margin: .4em 1.4em;
+    height: 3em;
+    width: 6.2em;
+}
+
+.contenedor__info{
+    width: 100%;
+    color: #ff2020;
+    display: flex;
+    justify-content: center;
+}
+
+.info__vidas{
+    font-size: 1.5em;
+    display: inline-block;
+    font-weight: bolder;
+    margin-right: 1em;
+}
+
+.info__racha{
+    font-size: 1.5em;
+    display: inline-block;
+    font-weight: bolder;
+}

@@ -5,26 +5,32 @@
             <li class="list-inline-item p-3" *ngIf="(this.usuario | async)?.mail">
                 <p class="text-white">{{(this.usuario | async)?.mail}}</p>
             </li>
-            <li class="list-inline-item p-3">
-                <a class="text-white" routerLink="juegos">Juegos</a>
-            </li>
-            <li class="list-inline-item p-3">
-                <a class="text-white" routerLink="puntuacion">Puntuaciones</a>
-            </li>
             <li class="list-inline-item p-3" *ngIf="!(this.usuario | async)?.mail">
                 <a class="text-white" routerLink="login">Ingresar</a>
             </li>
             <li class="list-inline-item p-3" *ngIf="!(this.usuario | async)?.mail">
                 <a class="text-white" routerLink="registro">Registrarse</a>
             </li>
+            <li class="list-inline-item p-3">
+                <a class="text-white" routerLink="juegos">Juegos</a>
+            </li>
             <li class="list-inline-item p-3" *ngIf="(this.usuario | async)?.mail">
-                <a class="text-white" routerLink="home" (click)="this.salir()">Salir</a>
+                <a class="text-white" routerLink="puntuacion">Puntuaciones</a>
             </li>
             <li class="list-inline-item p-3">
                 <a class="text-white" routerLink="chat">Chat</a>
             </li>
             <li class="list-inline-item p-3">
                 <a class="text-white" routerLink="quienSoy">Quien Soy</a>
+            </li>
+            <li class="list-inline-item p-3" *ngIf="(this.usuario | async)?.mail">
+                <a class="text-white" routerLink="encuesta">Encuesta</a>
+            </li>
+            <li class="list-inline-item p-3" *ngIf="(this.usuario | async)?.mail">
+                <a class="text-white" routerLink="respuestas">Respuestas</a>
+            </li>
+            <li class="list-inline-item p-3" *ngIf="(this.usuario | async)?.mail">
+                <a class="text-white" routerLink="home" (click)="this.salir()">Salir</a>
             </li>
         </ul>
     </nav>

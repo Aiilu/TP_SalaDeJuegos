@@ -1,16 +1,12 @@
 export class Usuario {
     mail:string;
     clave:string;
+    perfil:string;
 
-    constructor(mail:string, clave:string)
+    constructor(mail:string, clave:string, perfil:string)
     {
         this.mail = mail;
         this.clave = clave;
-    }
-
-    limpiar()
-    {
-      this.clave = "";
-      this.mail = "";
+        this.perfil = perfil;
     }
 }

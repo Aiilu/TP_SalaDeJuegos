@@ -46,9 +46,11 @@ export class ChatComponent {
 
   enviar()
   {
+    let fechaHora:string = (((new Date).toLocaleDateString()) + " " + ((new Date).toLocaleTimeString()));
+
     if(this.mensaje.length != 0)
     {
-      this.servBase.guardar("Chat", {usuario: this.mailUsuario, hora:(new Date).toLocaleTimeString(), mensaje: this.mensaje});
+      this.servBase.guardar("Chat", {usuario: this.mailUsuario, fechaHora: fechaHora, mensaje: this.mensaje});
     }
     this.mensaje = "";
   }

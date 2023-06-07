@@ -2,6 +2,11 @@ import { Component } from '@angular/core';
 import { HttpService } from 'src/app/Servicios/http.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import Swal from 'sweetalert2';
+import { UsuariosService } from 'src/app/Servicios/usuarios.service';
+import { Usuario } from 'src/app/Clases/usuario';
+import { Subscription } from 'rxjs';
+import { BasedatosService } from 'src/app/Servicios/basedatos.service';
+import { Puntaje } from 'src/app/Clases/puntaje';
 // import { Subscription } from 'rxjs';
 
 @Component({
@@ -17,7 +22,7 @@ import Swal from 'sweetalert2';
         transform: 'translatex(0%)'
       })),
       transition('inactive => active',
-        animate('200ms ease-in')),
+        animate('300ms ease-in')),
     ]),
     trigger('animacion2', [
       state('inactive', style({
@@ -77,8 +82,11 @@ export class MayormenorComponent {
   estado:string = 'active';
   estado2:string = 'inactive';
   estado3:string = 'inactive';
+  miUsuario:Usuario = new Usuario("", "", ""); //Agregado
+  susUsuario:Subscription; //Agregado
+  miPuntaje:Puntaje = new Puntaje("", "", "", 0); //Agregado
 
-  constructor(private servHttp:HttpService){ 
+  constructor(private servHttp:HttpService, private servUsuario:UsuariosService, private servBase:BasedatosService){ 
     // this.suscripcion = Subscription.EMPTY;
     // this.suscripcion = this.servHttp.traerCartas().subscribe((respuesta)=>
     // {
@@ -88,6 +96,8 @@ export class MayormenorComponent {
     this.cartasAux = [...this.cartas];
     this.indice = Math.floor(Math.random() * (this.cartas.length - 1));
     this.comenzar();
+
+    this.susUsuario = this.servUsuario.getActivo.subscribe((data) => this.miUsuario = data); //Agregado
   }
 
   ngOnInit()
@@ -102,6 +112,7 @@ export class MayormenorComponent {
   ngOnDestroy()
   {
     // this.suscripcion.unsubscribe();
+    this.susUsuario.unsubscribe(); //Agregado
   }
 
   comenzar()
@@ -150,11 +161,17 @@ export class MayormenorComponent {
   }
 
   terminar(){
+    let fechaHora:string = (((new Date).toLocaleDateString()) + " " + ((new Date).toLocaleTimeString())); //Agregado
     Swal.fire(
       'Puntos finales: ' + this.puntos,
       'Haga click para continuar',
       'success'
     );
+    this.miPuntaje.usuario = this.miUsuario.mail; //Agregado
+    this.miPuntaje.juego = "Mayor Menor"; //Agregado
+    this.miPuntaje.fecha = fechaHora; //Agregado
+    this.miPuntaje.puntaje = this.puntos; //Agregado
+    this.servBase.guardar("HighScore", this.miPuntaje); //Agregado
     this.vidas = 3;
     this.puntos = 0;
     this.comenzar();

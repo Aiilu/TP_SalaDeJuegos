@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Puntaje } from 'src/app/Clases/puntaje';
+import { Usuario } from 'src/app/Clases/usuario';
+import { BasedatosService } from 'src/app/Servicios/basedatos.service';
+import { UsuariosService } from 'src/app/Servicios/usuarios.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,9 +21,19 @@ export class AhorcadoComponent {
   intentos:number = 6;
   racha:number = 0;
   botones:any [] = [];
+  miUsuario:Usuario = new Usuario("", "", ""); //Agregado
+  susUsuario:Subscription; //Agregado
+  miPuntaje:Puntaje = new Puntaje("", "", "", 0); //Agregado
 
-  constructor(){
+  constructor(private servUsuario:UsuariosService, private servBase:BasedatosService){
+    console.log(this.palabras); //Agregado
     this.seleccion();
+    this.susUsuario = this.servUsuario.getActivo.subscribe((data) => this.miUsuario = data); //Agregado
+  }
+
+  ngOnDestroy()
+  {
+    this.susUsuario.unsubscribe(); //Agregado
   }
 
   seleccion(){
@@ -49,6 +64,12 @@ export class AhorcadoComponent {
     if(encontro == false){
       this.intentos--;
       if(this.intentos == 0){
+        let fechaHora:string = (((new Date).toLocaleDateString()) + " " + ((new Date).toLocaleTimeString())); //Agregado
+        this.miPuntaje.usuario = this.miUsuario.mail; //Agregado
+        this.miPuntaje.juego = "Ahorcado"; //Agregado
+        this.miPuntaje.fecha = fechaHora; //Agregado
+        this.miPuntaje.puntaje = this.racha; //Agregado
+        this.servBase.guardar("HighScore", this.miPuntaje); //Agregado
         this.racha = 0;
         Swal.fire(
           'Perdiste D:',

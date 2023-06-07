@@ -1,0 +1,66 @@
+.container {
+    margin-top: 1em;
+    max-width: 600px;
+    /* padding: 60px; */
+    border: slateblue solid 1px;
+}
+
+.formulario div[class^="col-md-"] {
+    height: 90px;
+}
+
+.invalid {
+    color: #dd0000;
+    font-weight:700;
+}
+
+
+/* nuevo */
+
+.contenedor {
+    background-color: #5090cc;
+    margin: 2em 25% 0;
+    border: 2px solid black;
+    border-radius: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contenedor__titulo{
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.5em;
+}
+
+.contenedor__nombre, .contenedor__apellido, .contenedor__telefono, .contenedor__edad, .contenedor__check , .contenedor__radio{
+    margin: 0.5em;
+    width: 45%;
+}
+
+.contenedor__nombre, .contenedor__apellido, .contenedor__telefono, .contenedor__edad, .contenedor__box{
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor__box{
+    width: 92%  ;
+}
+
+.contenedor__check , .contenedor__radio{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.opcion{
+    width: 50%;
+    margin: 0 25%;
+}
+
+.contenedor__boton {
+    width: 60%;
+    font-size: 1.3em;
+    margin: 0.5em 0 .2em;
+    border-radius: 3%;
+}

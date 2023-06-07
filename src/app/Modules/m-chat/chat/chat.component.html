@@ -7,7 +7,7 @@
             <!-- <div [ngClass]="{'text-end': chat.usuario == 'Ailen'}" *ngFor="let chat of this.chats"> -->
             <div *ngFor="let chat of this.chats" class="msj" [ngClass]="{'mio': chat.usuario == this.mailUsuario}">
                 <h4 class="usuHs" [ngClass]="{'text-primary': chat.usuario == this.mailUsuario,
-                'text-danger': chat.usuario != this.mailUsuario}">{{chat.usuario}} (<p class="hora">{{chat.hora}}</p>)</h4>
+                'text-danger': chat.usuario != this.mailUsuario}">{{chat.usuario}} (<p class="hora">{{chat.fechaHora}}</p>)</h4>
                 <p class="mensaje">{{chat.mensaje}}</p>
             </div>
         </div>

@@ -25,6 +25,7 @@ export class MenuComponent {
       'Haga click para continuar',
       'success'
     );
-    this.servUsuario.setActivo = new Usuario("", "");
+    this.servUsuario.setActivo = new Usuario("", "", "");
+    this.servUsuario.tipoPerfil = "";
   }
 }

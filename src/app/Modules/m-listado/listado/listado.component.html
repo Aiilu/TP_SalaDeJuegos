@@ -1,0 +1,128 @@
+<!-- Almacena usuario, fecha, puntaje, etc en HighScore.. 
+PREGUNTADOS: Al equivocarnos 1 vez
+AHORCADO: Al quedarnos sin vidas
+MAYOR/MENOR: Al quedarnos sin vidas
+EJ: 1. Ailen 100 30/05/2023 -- TOP 10 (ordenados por puntaje)
+-->
+<h1 class="text-center">HighScore</h1>
+<h4>Seleccione el juego que quiera ver</h4>
+
+<div class="contenedor">
+    <div class="contenedor__boton">
+        <button (click)="this.cambiarVista('ahorcado')">Ahorcado</button>
+        <button (click)="this.cambiarVista('preguntados')">Preguntados</button>
+        <button (click)="this.cambiarVista('mayormenor')">Mayor Menor</button>
+        <button (click)="this.cambiarVista('reflejos')">Reflejos</button>
+    </div>
+    <div class="contenedor__juego">
+        <div [ngSwitch]="this.vista">
+            <div *ngSwitchCase="'ahorcado'">
+                <div class="contenedor__ahorcado">
+                    <h4>Ahorcado</h4>
+                    <div *ngIf="this.listaAhorcado.length != 0 else ninguno">
+                        <table class="table table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th>Puesto</th>
+                                    <th>Usuario</th>
+                                    <th>Puntaje</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let ah of this.listaAhorcado; let i = index">
+                                    <td>{{i+1}}</td>
+                                    <td>{{ah.usuario}}</td>
+                                    <td>{{ah.puntaje}}</td>
+                                    <td>{{ah.fecha}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    
+            <div *ngSwitchCase="'mayormenor'">
+                <div class="contenedor__mayormenor">
+                    <h4>Mayor Menor</h4>
+                    <div *ngIf="this.listaMayorMenor.length != 0 else ninguno">
+                        <table class="table table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th>Puesto</th>
+                                    <th>Usuario</th>
+                                    <th>Puntaje</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let mm of this.listaMayorMenor; let i = index" class="contenedor__detalle">
+                                    <td>{{i+1}}</td>
+                                    <td>{{mm.usuario}}</td>
+                                    <td>{{mm.puntaje}}</td>
+                                    <td>{{mm.fecha}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    
+            <div *ngSwitchCase="'preguntados'">
+                <div class="contenedor__preguntados">
+                    <h4>Preguntados</h4>
+                    <div *ngIf="this.listaPreguntados.length != 0 else ninguno">
+                        <table class="table table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th>Puesto</th>
+                                    <th>Usuario</th>
+                                    <th>Puntaje</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let pr of this.listaPreguntados; let i = index" class="contenedor__detalle">
+                                    <td>{{i+1}}</td>
+                                    <td>{{pr.usuario}}</td>
+                                    <td>{{pr.puntaje}}</td>
+                                    <td>{{pr.fecha}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    
+            <div *ngSwitchCase="'reflejos'">
+                <div class="contenedor__reflejos">
+                    <h4>Reflejos</h4>
+                    <div *ngIf="this.listaReflejos.length != 0 else ninguno">
+                        <table class="table table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th>Puesto</th>
+                                    <th>Usuario</th>
+                                    <th>Puntaje</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let re of this.listaReflejos; let i = index" class="contenedor__detalle">
+                                    <td>{{i+1}}</td>
+                                    <td>{{re.usuario}}</td>
+                                    <td>{{re.puntaje}}</td>
+                                    <td>{{re.fecha}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #ninguno>
+    <p class="text-center">No hay ninguna puntuacion</p>
+</ng-template>
